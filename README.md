@@ -29,21 +29,24 @@
 * Yine bu sayfayi diger sayfalarla (renk,bicim, butonlarin cerceve kenarligi renkleri, tablonun saydam ardalan rengi vs.) tutarli bir sekilde farklilastiriniz. 
 
 ## Mentor Gorusmesi Sayfasi
-Mentor Gorusmesi butonuna basildiginda acilacak arayuz. Su ogeleri icermeli:
-1-Ara butonu ve Input kutusu -text girilecek bir kutu ve arama fonksiyonu ekleyecegimiz bir buton
-2-Tum Gorusmeler- Tablo cagiracak bir buton
-3-Coklu sekme - ustune gelindiginde asagi dogru acilarak birden fazla secenek gosteren bir arac ekleyiniz
-ipucu: Combobox> Edit Items
-4-Tercihler Ekranina Geri Don butonu
-Mulakatlar sayfasi
-Menu sayfasinda mulakatlar butonuna basilinca cagiralacak arayuz. Su ogeleri icermeli:
-1-Ara butonu ve Input kutusu -text girilecek bir kutu ve arama fonksiyonu ekleyecegimiz bir buton
-2-Projesi Gonderilmis Olanlar butonu
-3-Projesi Gelmis Olanlar butonu
-4-Tercihler ekranina geri don
-Her sayfanin etrafindaki pencere goruntusunu silip yerine aplikasyonu kapatma butonu ekleyebilirsiniz.
-Sayfa Gecisi
-Giris sayfasindaki, Tercihler menusundeki ve her sayfadaki 'Tercihler ekranina geri don' butonlarina islev kazandiracak fonksiyonlari ekleyip, sayfalar arasi gecisleri test ediniz.
+* Mentor Gorusmesi butonuna basildiginda acilacak arayuz. Su ogeleri icermeli:
+1- Ara butonu ve Input kutusu -text girilecek bir kutu ve arama fonksiyonu ekleyecegimiz bir buton
+2- Tum Gorusmeler- Tablo cagiracak bir buton
+3- Coklu sekme - ustune gelindiginde asagi dogru acilarak birden fazla secenek gosteren bir arac ekleyiniz
+* ipucu: Combobox> Edit Items
+4- Tercihler Ekranina Geri Don butonu
+
+## Mulakatlar sayfasi
+* Menu sayfasinda mulakatlar butonuna basilinca cagiralacak arayuz. Su ogeleri icermeli:
+1- Ara butonu ve Input kutusu -text girilecek bir kutu ve arama fonksiyonu ekleyecegimiz bir buton
+2- Projesi Gonderilmis Olanlar butonu
+3- Projesi Gelmis Olanlar butonu
+4- Tercihler ekranina geri don
+* Her sayfanin etrafindaki pencere goruntusunu silip yerine aplikasyonu kapatma butonu ekleyebilirsiniz.
+
+## Sayfa Gecisi
+* Giris sayfasindaki, Tercihler menusundeki ve her sayfadaki 'Tercihler ekranina geri don' butonlarina islev kazandiracak fonksiyonlari ekleyip, sayfalar arasi gecisleri test ediniz.
+
 ## Hackerrank Questions
 
 1. Utopian Tree: https://www.hackerrank.com/challenges/utopian-tree/problem
