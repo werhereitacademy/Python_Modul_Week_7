@@ -1,4 +1,5 @@
-# week_7
+# VIT2 Python-Module-Week7
+* Bu odevimizde https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/python-modulu/modul-project/crm sayfasinda olan , python modulu bitirme projesinin arayuzunu ozgun bir calisma ile tamamlamaniz beklenmektedir.
 
 ## Hackerrank Questions
 
