@@ -2,10 +2,10 @@
 * Bu odevimizde https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/python-modulu/modul-project/crm sayfasinda olan  python modulu bitirme projesinin arayuzunu ozgun bir calisma ile tamamlamaniz beklenmektedir.
   
 ## Arayüz giriş penceresi
-Uygulamaya özelleştirilmiş bir giriş sayfası oluşturunuz.  Bu sayfa asagidaki ozellikleri icersin
-1.Kullanici ve sifre icin iki ayrı input ogesi.
-2.Bu iki bilgiye reaksiyon verecek ve sonraki bir giris buton.
-3.Butonun tiklandiginda basarili olup olmadigini bildirecek bir uyari yazisi.
+* Uygulamaya özelleştirilmiş bir giriş sayfası oluşturunuz.  Bu sayfa asagidaki ozellikleri icersin
+1. Kullanici ve sifre icin iki ayrı input ogesi.
+2. Bu iki bilgiye reaksiyon verecek ve sonraki bir giris buton.
+3. Butonun tiklandiginda basarili olup olmadigini bildirecek bir uyari yazisi.
 Istege gore uygulamayi kapatacak baska bir buton ekleyip pencere goruntusunu kaldirabilirsiniz.
 Tutarli ardalan renkleri , kutu kenar sekilleri, buton ozellikleri (hover, pressed, yuvarlak kenar), yazilar icin farkli fontlar ve renkler kullanarak ozellesmis ve  giris penceresi olusturunuz.
 Ipucu: Once bir frame yerlestirip ogeleri ustune yerlestirerek, hem frame i hem de uzerine yerlestirdiginiz ogeleri layout,spacer kullanarak dinamik boyut olusturabilirsiniz.
