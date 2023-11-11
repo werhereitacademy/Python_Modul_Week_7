@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>698</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-color: rgb(173, 213, 239);
+background-color: rgb(104, 104, 104);
+</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>20</y>
+     <width>371</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(225,225,225); font-size:28pt;</string>
+   </property>
+   <property name="text">
+    <string>MENTÖR GÖRÜŞMESİ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="tercihleregeri2butonu">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>480</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(167, 168, 167); font-size:14pt; 
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>TERCİHLERE GERİ DÖN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mentorarabutonu">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>141</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:12pt; color:rgb(243,243,243)</string>
+   </property>
+   <property name="text">
+    <string>ARA</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="tumgorusmelerbutonu">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>211</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:12pt; color:rgb(243,243,243)</string>
+   </property>
+   <property name="text">
+    <string>TÜM GÖRÜŞMELER</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="mentorarainputu">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>280</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; color:rgb(243,243,243)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tumgorusmelerinputu">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>170</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; color:rgb(243,243,243)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="coklusekme">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>110</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:12pt; color:rgb(243,243,243)</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>SEKME 1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SEKME 7</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
