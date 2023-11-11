@@ -1,0 +1,232 @@
+import sys
+
+from PyQt6 import QtWidgets
+#from PyQt5 import QtWidgets
+from PyQt6.QtWidgets import QDialog, QApplication
+#from PyQt5.QtWidgets import QDialog, QApplication
+from PyQt6.uic import loadUi
+
+#1-Arayüz giriş penceresi
+class Login(QDialog):
+    def __init__(self):
+        super(Login,self).__init__()
+        loadUi('login.ui',self)
+        #self.giristusu.clicked.connect(self.girisfonksiyonu) #print yazdırsın diye. ve input alsın diye
+        self.anacikistusu.clicked.connect(self.kapiyagit)
+        self.giristusu.clicked.connect(self.giriskontrol)
+        #self.giristusu.clicked.connect(self.basariligirisprinti)
+        self.boyutayarla()
+
+        
+#Ipucu: Once bir frame yerlestirip ogeleri ustune yerlestirerek, hem frame i hem de uzerine yerlestirdiginiz
+    # ogeleri layout,spacer kullanarak dinamik boyut olusturabilirsiniz. Buna sonra bak.
+
+    def boyutayarla(self):
+        self.setFixedWidth(480)
+        self.setFixedHeight(580)
+
+    def basariligirisprinti(self):
+        #print('Giriş Başarılı')
+        pass
+
+    def giriskontrol(self):
+        #giris = SifreKontrol() #Önce Class oluşturmak istedim, sonra içerde çözdüm.
+        kullaniciadi = self.kullaniciadi.text()
+        sifre = self.sifre.text()
+        #if self.giristusu.clicked.connect:
+        if self.kullaniciadi.text() == sys_kullanciadi and self.sifre.text() == sys_parola:
+            basarili = TercihMenu()
+            widget.addWidget(basarili)
+            widget.setCurrentIndex(widget.currentIndex() + 1)
+            print('Kullanıcı Adı ve Şifre Girişi Başarılı! Kullanıcı Adı:', kullaniciadi, 'Şifre:', sifre)
+        else:
+            print(f'Hatalı Giriş Yaptınız, Kullanıcı Adı {kullaniciadi} ve/veya Parola {sifre} Hatalı!')
+
+
+
+    # 6/1 - Sayfa Geçisi - Giriş
+    def tercihegit(self):
+        tercihbaslat = TercihMenu()
+        widget.addWidget(tercihbaslat)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def kapiyagit(self):
+        print('Çıkış Yapıldı!')
+        app.quit()
+
+#class SifreKontrol(QDialog):
+#    def __init__(self):
+#        super(SifreKontrol,self).__init__()
+
+
+#2-Tercih-Menu
+class TercihMenu(QDialog):
+    def __init__(self):
+        super(TercihMenu,self).__init__()
+        loadUi('tercihmenu.ui',self)
+        self.basvurularbutonu.clicked.connect(self.basvuruyagit)
+        self.mentorbutonu.clicked.connect(self.mentoregit)
+        self.mulakatlarbutonu.clicked.connect(self.mulakatagit)
+        self.anamenudonustusu.clicked.connect(self.anamenuyegit)
+        self.tercihcikistusu.clicked.connect(self.kapiyolu)
+        self.boyutayarla()
+        giris = Login()
+        widget.addWidget(giris)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def boyutayarla(self):
+        self.setFixedWidth(603)
+        self.setFixedHeight(580)
+
+
+    def basvuruyagit(self):
+        basvuru = BasvurularMenu()
+        widget.addWidget(basvuru)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+
+    def mentoregit(self):
+        mentor = MentorMenu()
+        widget.addWidget(mentor)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def mulakatagit(self):
+        mulakat = MulakatMenu()
+        widget.addWidget(mulakat)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    # 6/2 - Sayfa Geçisi
+    def anamenuyegit(self): #Bunu çıkış fonk. döndür.
+        gerigit = Login()
+        #self.cikis.clicked.connect(self.Login) Ana sınıfta tanımladığımızdan buraya gerek yok.
+        widget.addWidget(gerigit)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def kapiyolu(self):
+        print('Çıkış Yapıldı!')
+        app.quit()
+
+#3-Basvurular Sayfasi
+class BasvurularMenu(QDialog):
+    def __init__(self):
+        super(BasvurularMenu,self).__init__()
+        loadUi('basvurular.ui', self)
+        self.arabutonu.clicked.connect(self.arayagit)
+        self.tumbasvurularbutonu.clicked.connect(self.tumbasvurularagit)
+        self.tanimlanangorusmelerbutonu.clicked.connect(self.tanimlanangorusmeleregit)
+        self.tanimlanmayangorusmelerbutonu.clicked.connect(self.tanimlanmayangorusmeleregit)
+        self.geributonu.clicked.connect(self.geriyegit)
+        self.boyutayarla()
+        giris = Login ()
+        widget.addWidget(giris)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def boyutayarla(self):
+        self.setFixedWidth(960)
+        self.setFixedHeight(580)
+
+    def arayagit(self):
+        pass
+
+    def tumbasvurularagit(self):
+        pass
+
+    def tanimlanangorusmeleregit(self):
+        pass
+
+    def tanimlanmayangorusmeleregit(self):
+        pass
+
+    #def sutunluktabloyagit(self): Sekmeli oldu, duruma göre eklenecek.
+    #    pass
+
+    # 6/3 - Sayfa Geçisi
+    def geriyegit(self):
+        terug = TercihMenu()
+        widget.addWidget(terug)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+#4- Mentor Gorusmesi Sayfasi
+class MentorMenu(QDialog):
+    def __init__(self):
+        super(MentorMenu, self).__init__()
+        loadUi('mentor.ui', self)
+        self.tumgorusmelerbutonu.clicked.connect(self.tumgorusmeleregit)
+        self.mentorarabutonu.clicked.connect(self.mentorarayagit)
+        self.tercihleregeri2butonu.clicked.connect(self.tercihleregit2)
+        #sekmeler = self.coklusekme.Text()
+        self.boyutayarla()
+        giris = Login()
+        widget.addWidget(giris)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def boyutayarla(self):
+        self.setFixedWidth(698)
+        self.setFixedHeight(580)
+
+    def tumgorusmeleregit(self):
+        pass
+
+    def mentorarayagit(self):
+        pass
+
+    #6/4 - Sayfa Geçisi
+    def tercihleregit2(self):
+        geriadim2 = TercihMenu()
+        widget.addWidget(geriadim2)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+#5- Mulakatlar sayfasi
+class MulakatMenu(QDialog):
+    def __init__(self):
+        super(MulakatMenu, self).__init__()
+        loadUi('mulakatlar.ui', self)
+        self.mulakatarabutonu.clicked.connect(self.mulakatarayagit)
+        self.projegelmisbutonu.clicked.connect(self.projegelmisleregit)
+        self.projegonderilmisbutonu.clicked.connect(self.projegonderilmisegit)
+        self.tercihleregeributonu.clicked.connect(self.tercihleregit)
+        giris = Login()
+        widget.addWidget(giris)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def mulakatarayagit(self):
+        pass
+
+    def projegelmisleregit(self):
+        pass
+
+    def projegonderilmisegit(self):
+        pass
+
+    # 6/5 - Sayfa Geçisi
+    def tercihleregit(self):
+        geriadim = TercihMenu()
+        widget.addWidget(geriadim)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+sys_kullanciadi = 'deneme'
+sys_parola = '1234'
+
+
+app=QApplication(sys.argv)
+mainwindow=Login()
+widget=QtWidgets.QStackedWidget() #Bir Diyalog dizini
+widget.addWidget(mainwindow)
+# widget.setFixedWidth(480)#Pencerenin ölçülerini belirledik.   bunlari her pencereye ayrica ekle diğer türlü bazı pencereler küçük gözüküyor.
+# widget.setFixedHeight(580) 
+widget.show()
+app.exec()
+
+# if __name__ == '__main__':
+#     app=QApplication(sys.argv)
+#     mainwindow = Login()
+#     widget=QtWidgets.QStackedWidget() 
+#     widget.addWidget(mainwindow)
+#     widget.show()
+#     sys.exit(app.exec())
+
+#Her sayfanin etrafindaki pencere goruntusunu silip yerine aplikasyonu kapatma butonu ekleyebilirsiniz.
+#Her Sayfanın görüntüsünü kendine özgü yap Sonra ilave et....
+
+
