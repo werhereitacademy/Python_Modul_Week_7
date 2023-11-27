@@ -1,0 +1,334 @@
+import sys
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QTableWidgetItem
+from PyQt6 import QtCore
+from PyQt6.QtCore import QCoreApplication, QTimer
+from PyQt6.uic import loadUi
+import gspread
+import pandas as pd
+import pygame
+
+creds = 'key.json'
+gc=gspread.service_account(filename=creds)
+spreadsheet=gc.open('Kullanicilar')
+worksheet= spreadsheet.get_worksheet(0)
+all_values = worksheet.get_all_values()
+del all_values[0]
+
+class ProjeArayuz(QMainWindow):
+    def __init__(self):
+        super(ProjeArayuz, self).__init__()
+        loadUi('Proje_Arayuz.ui', self)
+        self.setGeometry(450, 30, self.width(), self.height())
+        self.Uyari.clear()
+        self.Giris_butonu_2.clicked.connect(self.Giris)
+        self.Kapat_butonu_2.clicked.connect(QCoreApplication.exit)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+
+    def Giris(self):
+        kullaniciadi = self.K_adi_2.text()
+        sifre = self.K_sifresi_3.text()
+        #print(all_values)        
+        for row in all_values:
+            k = row[0]
+            s = row[1]
+            if kullaniciadi==k and sifre==s and sifre!='' and kullaniciadi!='' :
+                #self.hide()
+                tercih_menu.show()
+                proje_arayuz.hide()
+                self.K_adi_2.clear()
+                self.K_sifresi_3.clear()
+                self.Uyari.clear()
+                pygame.mixer.init()
+                pygame.mixer.music.load("C:/Users/LENOVO/VsProjects/Week7/W7b/Engin.mp3")
+                pygame.mixer.music.play()
+                # import time
+                # time.sleep(min(30, clip.seconds()))
+                # clip.stop()
+                break
+            elif kullaniciadi!=k or sifre!=s:
+                self.K_adi_2.clear()
+                self.K_sifresi_3.clear()
+                self.Uyari.setText('Sisteme giriş başarısız ! Kullanıcı adı yada sifre hatalı!')
+
+class TercihMenu(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi('TercihMenu.ui', self)
+        self.setGeometry(450, 30, self.width(), self.height())
+        self.Basvurular_2.clicked.connect(self.basvurular)
+        self.Mentor_Gorusmesi_2.clicked.connect(self.mentorGorusmesi)
+        self.Mulakatlar_2.clicked.connect(self.mulakatlar)
+        self.Kapat_butonu_2.clicked.connect(QCoreApplication.exit)
+        self.geriButonu.clicked.connect(self.geriGit)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+    
+    def geriGit(self):
+        proje_arayuz.show()
+        tercih_menu.hide()        
+
+    def basvurular(self):
+        basvurular_sayfasi.show()
+        tercih_menu.hide()
+
+    def mentorGorusmesi(self):
+        mentor_gorusme_sayfasi.show()
+        tercih_menu.hide()
+
+    def mulakatlar(self):
+        mulakatlar.show()
+        tercih_menu.hide()
+
+spreadsheet=gc.open('Basvurular')
+worksheet3= spreadsheet.get_worksheet(0)
+all_values3 = worksheet3.get_all_values()
+del all_values3[0]
+
+class BasvurularSayfasi(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi('BasvurularSayfasi.ui', self)
+        self.setGeometry(450, 30, self.width(), self.height())
+        self.Kapat_butonu_2.clicked.connect(QCoreApplication.exit)
+        self.geriButonu.clicked.connect(self.geriGit)
+        self.ara_Butonu.clicked.connect(self.Arama)
+        self.TumBasvurular_2.clicked.connect(self.tumBasvurular)
+        self.MentorGorTan_2.clicked.connect(self.MgTamamlanan)
+        self.MentorGorTanmMa_4.clicked.connect(self.MgTamamlanmayan)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+
+    def Arama(self):
+        if self.arama_kutusu.text()!='':
+            results= []
+            ara= self.arama_kutusu.text()
+            for kayit in all_values3:
+                if ara.lower() in kayit[1].lower():
+                    results.append(kayit)
+
+            if not results:
+                    self.arama_negatif.setText('Aradığınız kişi listede bulunmamaktadır!')
+                    QTimer.singleShot(3000, lambda: self.arama_negatif.clear())
+            self.df = pd.DataFrame(results)
+            self.tableWidget.setRowCount(0)
+            for row_index, (index, row) in enumerate(self.df.iterrows()):
+                self.tableWidget.insertRow(row_index)
+                for col_index, col_value in enumerate(row):
+                    item = QTableWidgetItem(str(col_value))
+                    self.tableWidget.setItem(row_index, col_index, item)
+                self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+                QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    
+    def tumBasvurular(self):
+        self.df = pd.DataFrame(all_values3)
+        self.tableWidget.setRowCount(0)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item:
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+
+    def MgTamamlanan(self):
+        results= []
+        for kayit in all_values3:
+                if kayit[20] == "OK": 
+                    results.append(kayit)
+        self.df = pd.DataFrame(results)
+        self.tableWidget.setRowCount(0)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item:
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    
+    def MgTamamlanmayan(self):
+        results= []
+        for kayit in all_values3:
+                if kayit[20] != "OK": 
+                    results.append(kayit)
+            
+        self.df = pd.DataFrame(results)
+        self.tableWidget.setRowCount(0)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item:
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    
+    def geriGit(self):
+        self.tableWidget.setRowCount(0)
+        self.arama_kutusu.clear()
+        tercih_menu.show()
+        basvurular_sayfasi.hide()
+
+spreadsheet=gc.open('Mulakatlar')
+worksheet1= spreadsheet.get_worksheet(0)
+all_values1 = worksheet1.get_all_values()
+del all_values1[0]
+
+class Mulakatlar(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi('Mulakatlar.ui', self)
+        self.setGeometry(450, 30, self.width(), self.height())
+        self.Cikis_Butonu.clicked.connect(QCoreApplication.exit)
+        self.geriButonu.clicked.connect(self.geriGit)
+        self.ara_Butonu.clicked.connect(self.Arama)
+        self.ProjeGonderilmis_2.clicked.connect(self.proje1)
+        self.ProjeGelmis_3.clicked.connect(self.proje2)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+    
+    def Arama(self):
+        if self.arama_kutusu.text()!='':
+            results= []
+            ara= self.arama_kutusu.text()
+            for kayit in all_values1:
+                if ara.lower() in kayit[0].lower():
+                    results.append(kayit)
+            if not results:
+                    self.arama_negatif.setText('Aradığınız kişi listede bulunmamaktadır!')
+                    QTimer.singleShot(3000, lambda: self.arama_negatif.clear())
+            self.df = pd.DataFrame(results)
+            self.tableWidget.setRowCount(0)
+            for row_index, (index, row) in enumerate(self.df.iterrows()):
+                self.tableWidget.insertRow(row_index)
+                for col_index, col_value in enumerate(row):
+                    item = QTableWidgetItem(str(col_value))
+                    self.tableWidget.setItem(row_index, col_index, item)
+                self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+                QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+       
+    def proje1(self):
+        #print(all_values1)
+        results= []
+        for kayit in all_values1:
+            if kayit[1]!='':
+                results.append(kayit)
+        
+        self.df = pd.DataFrame(results)
+        self.tableWidget.setRowCount(0)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item :
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    def proje2(self):
+        results= []
+        for kayit in all_values1:
+            if kayit[2]!='':
+                results.append(kayit)
+        self.df = pd.DataFrame(results)
+        self.tableWidget.setRowCount(0)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item :
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    
+    def geriGit(self):
+        self.tableWidget.setRowCount(0)
+        self.arama_kutusu.clear()
+        tercih_menu.show()
+        mulakatlar.hide()
+
+
+spreadsheet=gc.open('Mentor')
+worksheet2= spreadsheet.get_worksheet(0)
+all_values2 = worksheet2.get_all_values()
+del all_values2[0]
+for kayit in all_values2:
+    kayit[4], kayit[5], kayit[6], kayit[7] = kayit[6], kayit[7], kayit[4], kayit[5]
+
+class MentorGorusmeSayfasi(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi('MentorGorusmeSayfasi.ui', self)
+        self.setGeometry(450, 30, self.width(), self.height())
+        self.Kapat_butonu_2.clicked.connect(QCoreApplication.exit)
+        self.geriButonu.clicked.connect(self.geriGit)
+        self.ara_Butonu.clicked.connect(self.Arama)
+        self.TumGorusme_2.clicked.connect(self.TumGorusmeler)
+        self.comboBox.currentIndexChanged.connect(self.update_table)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+
+    def Arama(self):        
+        if self.arama_kutusu.text()!='':
+            results= []
+            ara= self.arama_kutusu.text()
+            for kayit in all_values2:
+                if ara.lower() in kayit[1].lower():
+                    results.append(kayit)
+            
+            if not results:
+                    self.arama_negatif.setText('Aradığınız kişi listede bulunmamaktadır!')
+                    QTimer.singleShot(3000, lambda: self.arama_negatif.clear())
+            
+
+            self.df = pd.DataFrame(results)
+            self.tableWidget.setRowCount(0)
+            for row_index, (index, row) in enumerate(self.df.iterrows()):
+                self.tableWidget.insertRow(row_index)
+                for col_index, col_value in enumerate(row):
+                    item = QTableWidgetItem(str(col_value))
+                    self.tableWidget.setItem(row_index, col_index, item)
+                self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+                QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+    
+    def TumGorusmeler(self):        
+        self.tableWidget.setRowCount(0)
+        self.df = pd.DataFrame(all_values2)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item:
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+
+    def update_table(self):
+        results = []
+        for kayit in all_values2:
+            if self.comboBox.currentText() == kayit[6]:
+                results.append(kayit)
+               
+        self.tableWidget.setRowCount(0)
+        self.df = pd.DataFrame(results)
+        for row_index, (index, row) in enumerate(self.df.iterrows()):
+            self.tableWidget.insertRow(row_index)
+            for col_index, col_value in enumerate(row):
+                item = QTableWidgetItem(str(col_value))
+                if item:
+                    self.tableWidget.setItem(row_index, col_index, item)
+            self.liste_kisi_sayisi.setText(f'Bulunan Kişi Sayısı : {len(self.df)}')
+            QTimer.singleShot(3000, lambda: self.liste_kisi_sayisi.clear())
+
+    def geriGit(self):
+        self.tableWidget.setRowCount(0)
+        self.arama_kutusu.clear()
+        tercih_menu.show()
+        mentor_gorusme_sayfasi.hide()
+           
+
+app = QApplication(sys.argv)
+proje_arayuz = ProjeArayuz()
+tercih_menu = TercihMenu()
+basvurular_sayfasi = BasvurularSayfasi()
+mulakatlar = Mulakatlar()
+mentor_gorusme_sayfasi = MentorGorusmeSayfasi()
+
+proje_arayuz.show()
+sys.exit(app.exec())
