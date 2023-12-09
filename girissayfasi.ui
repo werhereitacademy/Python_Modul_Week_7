@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GirisSayfasi</class>
+ <widget class="QMainWindow" name="GirisSayfasi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>504</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GirisSayfasi</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 246, 201);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="labelKullanci">
+       <property name="geometry">
+        <rect>
+         <x>428</x>
+         <y>160</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(69, 79, 83);</string>
+       </property>
+       <property name="text">
+        <string>Kullanci Adi</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_1">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>151</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Sitka Display</family>
+         <pointsize>11</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelSifre">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>200</y>
+         <width>49</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(69, 79, 83);</string>
+       </property>
+       <property name="text">
+        <string>Sifre</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="girisButton">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>260</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(69, 79, 83);
+
+color: rgb(255, 255, 255);
+</string>
+       </property>
+       <property name="text">
+        <string>Giris</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelBilgi">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>230</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(69, 79, 83);</string>
+       </property>
+       <property name="text">
+        <string>Kullanici adinizi ve sifresinizi giriniz</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>190</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Sitka Display</family>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>421</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="labelResim">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>411</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>resimler/werherer logo.png</pixmap>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

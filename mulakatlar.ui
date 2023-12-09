@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MulakatlarSayfasi</class>
+ <widget class="QMainWindow" name="MulakatlarSayfasi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>776</width>
+    <height>524</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MulakatlarSayfasi</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame_4">
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 246, 201);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="frame">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>0</y>
+         <width>531</width>
+         <height>491</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableWidget" name="tableWidgetMul">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>511</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>Ad Soyad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proje Gonderim Tarihi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proje Gelis Tarihi</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>215</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="ProjeGelenButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>190</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Projesi Gelmis Olanlar</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ProjeGondButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>270</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Projesi Gonderilmis Olanlar</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>40</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Cooper Black</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>ARA</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="TercihlerEkraniButtonMul">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>350</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Tercihler Ekranina Geri Don</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tumMulButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>110</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Tum Mulakatlar</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TercihlerSayfasi</class>
+ <widget class="QMainWindow" name="TercihlerSayfasi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>761</width>
+    <height>528</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TercihlerSayfasi</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 246, 201);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="basvruButton">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>20</y>
+         <width>271</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Basvurular</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="tercihButton">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>170</y>
+         <width>271</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Tercihler</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="mulakatButton">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>330</y>
+         <width>271</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cooper Black</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Mulakatlar</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>431</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="labelResim2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>411</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>resimler/werherer logo.png</pixmap>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

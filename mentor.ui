@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mentorSayfasi</class>
+ <widget class="QMainWindow" name="mentorSayfasi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>776</width>
+    <height>524</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MentorSayfasi</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame_4">
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 246, 201);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="frame">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>0</y>
+         <width>531</width>
+         <height>491</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableWidget" name="tableWidgetMen">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>511</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>Ad Soyad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proje Gonderim Tarihi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proje Gelis Tarihi</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>215</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="tumGorusmelerButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Tum Gorusmeler</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditMen">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="araButtonMen">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>40</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Cooper Black</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>ARA</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="TercihlerEkraniButtonMen">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>190</y>
+          <width>211</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(186, 0, 0);
+border-radius:30px;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Tercihler Ekranina Geri Don</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>-2</x>
+          <y>310</y>
+          <width>221</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>VIT projesinin tamamına katılması uygun olur</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>VIT projesi ilk IT eğitimi alıp ITPH a yönlendirilmesi uygun olur</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>VIT projesi ingilizce eğitimi alıp ITPH a yönlendirilmesi uygun olur</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>VIT projesi kapsamında direkt ITPH a yönlendirilmesi uygun olur.</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Direkt bireysel koçluk ile işe yönlendirilmesi uygun olur</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bir sonraki VIT projesine katilmasi daha uygun olur</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Başka bir sektöre yönlendirilmeli</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Diger</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
